@@ -1,27 +1,34 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { Character } from "../types/Character";
 import { useCharacterData } from "../hooks/useCharacterData";
 import { Error, Loading, CharacterCard } from "../components";
 import { MEDIA_QUERY_END_POINT } from "../constants";
+import { ENDPOINT } from "../constants";
 
 interface CharacterContainerProps {
   name : string;
 }
 
 export const CharacterContainer = ({name} : CharacterContainerProps) => {
-  const {data, error } = useCharacterData(name);
+  const { data, error } = useCharacterData(name);
 
   if (error) return <Error />;
   if (!data) return <Loading />;
+  const PATH = ENDPOINT + name + "/";
 
   return (
     <Container>
       {data.map((character: Character) => {
         return (
-          <CharacterCard
+          <Link
+            href={`${PATH}${character.id}`}
             key={`futurama-character-${character.id}`}
-            characterData={character}
-          />
+          >
+            <a>
+              <CharacterCard characterData={character}/>
+            </a>
+          </Link>
         )
       })}
     </Container>
