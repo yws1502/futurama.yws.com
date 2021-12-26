@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
-
-import { useRouter } from "next/router";
 import { Character } from "../types/Character";
 import { useCharacterData } from "../hooks/useCharacterData";
 import { Error, Loading, CharacterCard } from "../components";
+import { MEDIA_QUERY_END_POINT } from "../constants";
 
 interface CharacterContainerProps {
   name : string;
@@ -11,9 +10,6 @@ interface CharacterContainerProps {
 
 export const CharacterContainer = ({name} : CharacterContainerProps) => {
   const {data, error } = useCharacterData(name);
-  const router = useRouter();
-
-  console.log(router.query);
 
   if (error) return <Error />;
   if (!data) return <Loading />;
@@ -32,9 +28,17 @@ export const CharacterContainer = ({name} : CharacterContainerProps) => {
   )
 }
 
-
 const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px
+  gap: 20px;
+  /* aspect-ratio: 16 / 9; */
+
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: ${MEDIA_QUERY_END_POINT.MOBILE}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
