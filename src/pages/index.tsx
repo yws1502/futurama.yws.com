@@ -37,7 +37,7 @@ const MainContainer = styled.main`
   justify-content: center;
   align-items: center;
   gap: 70px;
-  padding: 60px 0 100px;
+  padding: 60px 0 120px;
   @media (max-width: 680px) {
     flex-direction: column;
   }
@@ -90,7 +90,7 @@ const Footer = styled.footer`
   flex-direction: column;
   gap: 15px;
   background-color: #D3DEE4;
-  height: 153px;
+  height: 133px;
   & > em {
     color: #E34047;
     font-weight: 600;
