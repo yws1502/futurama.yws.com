@@ -36,6 +36,7 @@ export const Navigation = () => {
 
 const Header = styled.header`
   box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
+  background-color: #006599;
   width: 100%;
 `
 
@@ -50,8 +51,9 @@ const Inner = styled.div`
 const Logo = styled.h1`
   font-size: 28px;
   font-weight: bold;
-  line-height: 42px;
-  `
+  line-height: 57px;
+  text-transform: uppercase;
+`
 
 const Menu = styled.ul`
   display: flex;
@@ -62,11 +64,11 @@ const Menu = styled.ul`
 const ListItem = styled.li`
   transition: .2s;
   font-weight: bold;
+  color: #FFF;
   margin: .7rem;
   padding: 9px 10px;
   border-radius: 50px;
   &:hover {
-    color: white;
-    background-color: orange;
+    background-color: #C30A34;
   }
 `
