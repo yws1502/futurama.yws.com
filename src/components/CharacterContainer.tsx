@@ -18,7 +18,7 @@ export const CharacterContainer = ({name} : CharacterContainerProps) => {
   const PATH = ENDPOINT + name + "/";
 
   return (
-    <Container>
+    <SubContainer>
       {data.map((character: Character) => {
         return (
           <Link
@@ -31,15 +31,14 @@ export const CharacterContainer = ({name} : CharacterContainerProps) => {
           </Link>
         )
       })}
-    </Container>
+    </SubContainer>
   )
 }
 
-const Container = styled.section`
+const SubContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  /* aspect-ratio: 16 / 9; */
+  grid-gap: 20px;
 
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET}) {
     grid-template-columns: repeat(3, 1fr);
@@ -47,5 +46,10 @@ const Container = styled.section`
 
   @media (max-width: ${MEDIA_QUERY_END_POINT.MOBILE}) {
     grid-template-columns: repeat(2, 1fr);
+  }
+  & > a {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
   }
 `

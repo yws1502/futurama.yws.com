@@ -46,6 +46,10 @@ const Inner = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 0.7rem 0;
+  @media (max-width: 820px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Logo = styled.h1`
@@ -53,12 +57,17 @@ const Logo = styled.h1`
   font-weight: bold;
   line-height: 57px;
   text-transform: uppercase;
+  & > a {
+    color: #fff;
+  }
 `
 
 const Menu = styled.ul`
   display: flex;
   list-style: none;
   font-size: 1.1rem;
+  flex-wrap : wrap;
+  justify-content: center;
   `
 
 const ListItem = styled.li`
