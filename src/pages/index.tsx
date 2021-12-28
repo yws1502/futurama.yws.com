@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <TextWrap>
           <SubTitle>Welcome to the World Tomorrow</SubTitle>
           <Describe>You Will Find Happiness With a new love</Describe>
-          <Link href={"https://en.wikipedia.org/wiki/Futurama"}>
+          <Link href={"https://www.imdb.com/find?q=futurama&ref_=nv_sr_sm"}>
             <Button>More Futurama</Button>
           </Link>
         </TextWrap>
