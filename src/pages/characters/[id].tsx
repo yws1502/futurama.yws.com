@@ -65,6 +65,7 @@ const Contents = styled.section`
 
 const SayWrap = styled.ul`
   background-color: #fff;
+  box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
   border-radius: 20px;
   font-size: 1.1rem;
   line-height: 25px;

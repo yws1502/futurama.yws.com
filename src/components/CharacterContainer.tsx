@@ -4,7 +4,6 @@ import { Character } from "../types/Character";
 import { useData } from "../hooks/useData";
 import { Error, Loading, CharacterCard } from "../components";
 import { MEDIA_QUERY_END_POINT } from "../constants";
-import { ENDPOINT } from "../constants";
 
 interface CharacterContainerProps {
   name : string;
@@ -15,14 +14,13 @@ export const CharacterContainer = ({name} : CharacterContainerProps) => {
 
   if (error) return <Error />;
   if (!data) return <Loading />;
-  const PATH = ENDPOINT + name + "/";
 
   return (
     <SubContainer>
       {data.map((character: Character) => {
         return (
           <Link
-            href={`${PATH}${character.id}`}
+            href={`${name}/${character.id}`}
             key={`futurama-character-${character.id}`}
           >
             <a>
@@ -50,6 +48,7 @@ const SubContainer = styled.section`
   & > a {
     background-color: #fff;
     border-radius: 15px;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
     padding: 1.5rem;
   }
 `

@@ -35,7 +35,6 @@ export default Home
 
 
 const MainContainer = styled.main`
-  background-color: #8DDAC6;
   display: flex;
   justify-content: center;
   align-items: center;
