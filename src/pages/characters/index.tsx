@@ -17,7 +17,6 @@ const CharactersPage: NextPage = () => {
 export default CharactersPage;
 
 const Container = styled.div`
-  background-color: #8DDAC6;
   padding: 5rem;
   
   @media (max-width:${MEDIA_QUERY_END_POINT.TABLET}) {
