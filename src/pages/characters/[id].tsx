@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useData } from "../../hooks/useData"
+import { useFuturamaData } from "../../hooks/useFuturamaData"
 import { Error, Loading } from "../../components";
 import styled from "@emotion/styled";
 
@@ -8,7 +8,7 @@ const CharacterPage: NextPage = () => {
   const router = useRouter();
   const path = "characters/" + router.query.id;
 
-  const { data, error } = useData(path);
+  const { data, error } = useFuturamaData(path);
 
   if (error) return <Error />;
   if (!data) return <Loading />;

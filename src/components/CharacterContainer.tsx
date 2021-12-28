@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { Character } from "../types/Character";
-import { useData } from "../hooks/useData";
+import { useFuturamaData } from "../hooks/useFuturamaData";
 import { Error, Loading, CharacterCard } from "../components";
 import { MEDIA_QUERY_END_POINT } from "../constants";
 
@@ -10,7 +10,7 @@ interface CharacterContainerProps {
 }
 
 export const CharacterContainer = ({name} : CharacterContainerProps) => {
-  const { data, error } = useData(name);
+  const { data, error } = useFuturamaData(name);
 
   if (error) return <Error />;
   if (!data) return <Loading />;
