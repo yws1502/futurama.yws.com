@@ -13,20 +13,22 @@ const CharacterPage: NextPage = () => {
   if (error) return <Error />;
   if (!data) return <Loading />;
 
+  const { name, gender, species, homePlanet, occupation, images, sayings } = data;
+
   return (
     <Container>
       <SubTitle>Character info</SubTitle>
       <Contents>
-        <Describe><DataTitle>name</DataTitle>{`${data.name.first} ${data.name.middle} ${data.name.last}`}</Describe>
-        <Describe><DataTitle>gender</DataTitle>{data.gender}</Describe>
-        <Describe><DataTitle>species</DataTitle>{`${data.species}`}</Describe>
-        <Describe><DataTitle>homePlanet</DataTitle>{`${data.homePlanet}`}</Describe>
-        <Describe><DataTitle>occupation</DataTitle>{`${data.occupation}`}</Describe>
-        <img src={data.images.main} alt="" />
+        <Describe><DataTitle>name</DataTitle>{`${name.first} ${name.middle} ${name.last}`}</Describe>
+        <Describe><DataTitle>gender</DataTitle>{gender}</Describe>
+        <Describe><DataTitle>species</DataTitle>{`${species}`}</Describe>
+        <Describe><DataTitle>homePlanet</DataTitle>{`${homePlanet}`}</Describe>
+        <Describe><DataTitle>occupation</DataTitle>{`${occupation}`}</Describe>
+        <img src={images.main} alt="" />
         <SayWrap>
           <DataTitle>Saying</DataTitle>
           <ul>
-            {data.sayings.map((say: string, idx: number) => {
+            {sayings.map((say: string, idx: number) => {
               return (
                 <li key={idx}>{say}</li>
                 )
