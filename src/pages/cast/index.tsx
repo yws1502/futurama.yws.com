@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { NextPage } from "next";
-import { useData } from "../../hooks/useData";
+import { useFuturamaData } from "../../hooks/useFuturamaData";
 import { Error, Loading } from "../../components";
 import { Cast } from "../../types";
 import { MEDIA_QUERY_END_POINT, ActorsImages } from "../../constants";
 
 const CastPage: NextPage = () => {
   const name = "cast";
-  const { data, error } = useData(name)
+  const { data, error } = useFuturamaData(name)
   
   if (error) return <Error />;
   if (!data) return <Loading />;
