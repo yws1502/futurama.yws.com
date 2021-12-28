@@ -27,10 +27,13 @@ const InfoPage: NextPage = () => {
         </Article>
         <Article>
           <SubTitle>creators</SubTitle>
-          {creators.map((creator: Creator) => {
+          {creators.map((creator: Creator, index: number) => {
             const { name, url } = creator;
             return (
-              <Link href={url}>
+              <Link 
+                key={`creator-${index}`}
+                href={url}
+              >
                 <a>
                   <strong> {name} </strong>
                 </a>
