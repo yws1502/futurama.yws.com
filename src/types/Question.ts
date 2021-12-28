@@ -1,6 +1,6 @@
 export interface Question {
   question: string,
   correctAnswer: string,
-  possibleAnswer: Array<string>,
+  possibleAnswers: Array<string>,
   id: number,
 }
