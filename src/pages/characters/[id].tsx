@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useCharacterData } from "../../hooks/useCharacterData"
+import { useData } from "../../hooks/useData"
 import { Error, Loading } from "../../components";
 import styled from "@emotion/styled";
 
@@ -8,7 +8,7 @@ const CharacterPage: NextPage = () => {
   const router = useRouter();
   const path = "characters/" + router.query.id;
 
-  const { data, error } = useCharacterData(path);
+  const { data, error } = useData(path);
 
   if (error) return <Error />;
   if (!data) return <Loading />;

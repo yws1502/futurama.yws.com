@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { Character } from "../types/Character";
-import { useCharacterData } from "../hooks/useCharacterData";
+import { useData } from "../hooks/useData";
 import { Error, Loading, CharacterCard } from "../components";
 import { MEDIA_QUERY_END_POINT } from "../constants";
 import { ENDPOINT } from "../constants";
@@ -11,7 +11,7 @@ interface CharacterContainerProps {
 }
 
 export const CharacterContainer = ({name} : CharacterContainerProps) => {
-  const { data, error } = useCharacterData(name);
+  const { data, error } = useData(name);
 
   if (error) return <Error />;
   if (!data) return <Loading />;
