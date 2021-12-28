@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
 import type { NextPage } from 'next';
+import styled from '@emotion/styled';
+import Link from 'next/link';
 import Head from 'next/head';
 
 const Home: NextPage = () => {
@@ -16,7 +17,9 @@ const Home: NextPage = () => {
         <TextWrap>
           <SubTitle>Welcome to the World Tomorrow</SubTitle>
           <Describe>You Will Find Happiness With a new love</Describe>
-          <Button>More Futurama</Button>
+          <Link href={"https://en.wikipedia.org/wiki/Futurama"}>
+            <Button>More Futurama</Button>
+          </Link>
         </TextWrap>
       </MainContainer>
       <Footer>
