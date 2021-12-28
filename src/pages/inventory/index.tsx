@@ -16,9 +16,9 @@ const InventoryPage: NextPage = () => {
       <Title>Inventory</Title>
       <ContentContainer>
         {data.map((inventoryData: Inventory) => {
-          const { title, category, slogan, price, stock, description } = inventoryData;
+          const { title, category, slogan, price, stock, description, id } = inventoryData;
           return (
-            <Content>
+            <Content key={`inventory-${id}`}>
               <SubTitle>{title}</SubTitle>
               <p>{category}</p>
               <p>{slogan}</p>
