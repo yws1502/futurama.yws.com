@@ -24,7 +24,7 @@ const QuestionPage: NextPage = () => {
               <SubTitle>{question}</SubTitle>
               {possibleAnswers.map((choise: string, index: number) => {
                 return (
-                  <div>
+                  <div key={`question-${id}-${index}`}>
                     <input type="radio" id={`${id}-${index}`} name={`Quiz-${id}`} />
                     <label htmlFor={`${id}-${index}`}>{choise}</label>
                   </div>
@@ -47,7 +47,6 @@ const Container = styled.div`
 
 const Title = styled.h2`
   text-align: center;
-  color: #C30A34;
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -94,5 +93,4 @@ const Describe = styled.p`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 1rem;
   margin-top: 1rem;
-  display: none;
 `
