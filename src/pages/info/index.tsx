@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { NextPage } from "next";
 import { useData } from "../../hooks/useData";
 import { Error, Loading } from "../../components";
-import { Creator } from "../../types/Creator";
+import { Creator } from "../../types";
 
 const InfoPage: NextPage = () => {
   const name = "info";
