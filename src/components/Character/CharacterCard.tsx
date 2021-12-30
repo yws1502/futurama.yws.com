@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Character } from "../types/Character"
+import { Character } from "../../types/Character"
 
 interface CharacterProps {
   characterData : Character;

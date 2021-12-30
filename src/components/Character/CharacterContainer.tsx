@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import { Character } from "../types/Character";
-import { useFuturamaData } from "../hooks/useFuturamaData";
-import { Error, Loading, CharacterCard } from "../components";
-import { MEDIA_QUERY_END_POINT } from "../constants";
+import { Character } from "../../types/Character";
+import { useFuturamaData } from "../../hooks/useFuturamaData";
+import { Error, Loading, CharacterCard } from "../../components";
+import { MEDIA_QUERY_END_POINT } from "../../constants";
 
 interface CharacterContainerProps {
   name : string;
