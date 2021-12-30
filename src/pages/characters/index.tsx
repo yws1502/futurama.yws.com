@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
-import { CharacterContainer } from "../../components/CharacterContainer";
+import { CharacterContainer } from "../../components";
 import styled from "@emotion/styled";
-import { MEDIA_QUERY_END_POINT} from "../../constants/index";
+import { MEDIA_QUERY_END_POINT} from "../../constants";
 
 const CharactersPage: NextPage = () => {
   const name = "characters";
