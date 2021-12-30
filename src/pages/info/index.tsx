@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
-import { InfoCotainer } from "../../components";
+import { InfoCotainer, PageTitle } from "../../components";
 
 
 const InfoPage: NextPage = () => {
@@ -8,7 +8,7 @@ const InfoPage: NextPage = () => {
   
   return (
     <Container>
-      <h2>Info</h2>
+      <PageTitle title={"Info"}/>
       <InfoCotainer name={name} />
     </Container>
   )
