@@ -14,14 +14,14 @@ const QuestionPage: NextPage = () => {
 
   return (
     <Container>
-      <Title>Quiz</Title>
-      <ContentContainer>
+      <h2>Quiz</h2>
+      <section className="cont-content">
         {data.map((questionData: Question) => {
           const { question, possibleAnswers, correctAnswer, id } = questionData;
 
           return (
-            <Content key={`question-${id}`}>
-              <SubTitle>{question}</SubTitle>
+            <article className="content" key={`question-${id}`}>
+              <h3>{question}</h3>
               {possibleAnswers.map((choise: string, index: number) => {
                 return (
                   <div key={`question-${id}-${index}`}>
@@ -30,11 +30,11 @@ const QuestionPage: NextPage = () => {
                   </div>
                 )
               })}
-              <Describe>정답 : {correctAnswer}</Describe>
-            </Content>
+              <p>정답 : {correctAnswer}</p>
+            </article>
           )
         })}
-      </ContentContainer>
+      </section>
     </Container>
   )
 }
@@ -43,54 +43,53 @@ export default QuestionPage;
 
 const Container = styled.div`
   margin: 5rem;
-`
-
-const Title = styled.h2`
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 3rem;
-`
-
-const ContentContainer = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 3rem;
+  }
+  .cont-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    .content {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
+      line-height: 22px;
+      padding: 1.5rem;
+      div > input {
+        margin-right: .7rem;
+      }
+      h3 {
+        display: inline-block;
+        font-size: 1.3rem;
+        font-weight: bold;
+        line-height: 27px;
+        color: #C30A34;
+        border-radius: 20px;
+        margin: 1rem auto;
+      }
+      p {
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+    }
+  }
 
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET}) {
-    grid-template-columns: repeat(2, 1fr);
+    .cont-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: ${MEDIA_QUERY_END_POINT.MOBILE}) {
-    grid-template-columns: repeat(1, 1fr);
+    .cont-content {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
-`
-
-const Content = styled.article`
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
-  line-height: 22px;
-  padding: 1.5rem;
-  & > div > input {
-    margin-right: .7rem;
-  }
-`
-
-const SubTitle = styled.h3`
-  display: inline-block;
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 27px;
-  color: #C30A34;
-  border-radius: 20px;
-  margin: 1rem auto;
-`
-
-const Describe = styled.p`
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 1rem;
-  margin-top: 1rem;
 `

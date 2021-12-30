@@ -15,18 +15,18 @@ const InfoPage: NextPage = () => {
   
   return (
     <Container>
-      <Title>Info</Title>
-      <Contents>
-        <Article>
-          <SubTitle>synopsis</SubTitle>
+      <h2>Info</h2>
+      <section>
+        <article>
+          <strong>synopsis</strong>
           <p>{synopsis}</p>
-        </Article>
-        <Article>
-        <SubTitle>yearsAired</SubTitle>
+        </article>
+        <article>
+        <strong>yearsAired</strong>
         <p>{yearsAired}</p>
-        </Article>
-        <Article>
-          <SubTitle>creators</SubTitle>
+        </article>
+        <article>
+          <strong>creators</strong>
           {creators.map((creator: Creator, index: number) => {
             const { name, url } = creator;
             return (
@@ -35,13 +35,13 @@ const InfoPage: NextPage = () => {
                 href={url}
               >
                 <a>
-                  <strong> {name} </strong>
+                  <em> {name} </em>
                 </a>
               </Link>
             )
           })}
-        </Article>
-      </Contents>
+        </article>
+      </section>
     </Container>
   )
 }
@@ -50,39 +50,37 @@ export default InfoPage;
 
 const Container = styled.div`
   margin: 5rem;
-`
 
-const Title = styled.h2`
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 3rem;
-`
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 3rem;
+  }
 
-const Contents = styled.div`
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
-  line-height: 22px;
-  padding: 2rem;
-`
+  section {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
+    line-height: 22px;
+    padding: 2rem;
+  }
 
-const SubTitle = styled.h3`
-  display: block;
-  width: 100px;
-  height: 30px;
-  line-height: 25px;
-  background-color: #C30A34;
-  color: #fff;
-  border-radius: 20px;
-  margin: 1rem auto;
-`
+  article {
+    text-align: center;
+    a { color: black; }
+    a + a::before { content: "/"; }
+  }
 
-const Article = styled.article`
-  text-align: center;
-
-  & > a{
-    color: black;
+  strong {
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 25px;
+    background-color: #C30A34;
+    color: #fff;
+    border-radius: 20px;
+    margin: 1rem auto;
   }
 `

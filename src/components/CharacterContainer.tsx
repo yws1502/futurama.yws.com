@@ -45,10 +45,18 @@ const SubContainer = styled.section`
   @media (max-width: ${MEDIA_QUERY_END_POINT.MOBILE}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  & > a {
+  a {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
     padding: 1.5rem;
+    transition: .3s linear;
+    &:hover {
+      background-color: rgba(0,0,0,0.2);
+      img {
+        transform: scale(1.2);
+        transition: .3s linear;
+      }
+    }
   }
 `

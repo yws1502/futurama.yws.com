@@ -17,16 +17,25 @@ const CharacterPage: NextPage = () => {
 
   return (
     <Container>
-      <SubTitle>Character info</SubTitle>
-      <Contents>
-        <Describe><DataTitle>name</DataTitle>{`${name.first} ${name.middle} ${name.last}`}</Describe>
-        <Describe><DataTitle>gender</DataTitle>{gender}</Describe>
-        <Describe><DataTitle>species</DataTitle>{`${species}`}</Describe>
-        <Describe><DataTitle>homePlanet</DataTitle>{`${homePlanet}`}</Describe>
-        <Describe><DataTitle>occupation</DataTitle>{`${occupation}`}</Describe>
-        <img src={images.main} alt="" />
-        <SayWrap>
-          <DataTitle>Saying</DataTitle>
+      <h2>Character info</h2>
+      <section>
+        <article>
+          <img src={images.main} alt="" />
+          <dl>
+            <dt className="data-title">name</dt>
+            <dd>{`${name.first} ${name.middle} ${name.last}`}</dd>
+            <dt className="data-title">gender</dt>
+            <dd>{gender}</dd>
+            <dt className="data-title">species</dt>
+            <dd>{species}</dd>
+            <dt className="data-title">homePlanet</dt>
+            <dd>{homePlanet}</dd>
+            <dt className="data-title">occupation</dt>
+            <dd>{occupation}</dd>
+          </dl>
+        </article>
+        <article className="sayWrap">
+          <h3 className="data-title">Saying</h3>
           <ul>
             {sayings.map((say: string, idx: number) => {
               return (
@@ -34,8 +43,8 @@ const CharacterPage: NextPage = () => {
                 )
               })}
           </ul>
-        </SayWrap>
-      </Contents>
+        </article>
+      </section>
     </Container>
   )
 }
@@ -44,43 +53,55 @@ export default CharacterPage;
 
 const Container = styled.div`
   padding: 5rem;
-`
-
-const SubTitle = styled.h2`
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #C30A34;
-  margin-bottom: 4rem;
-`
-
-const Contents = styled.section`
-  text-align: center;
-  & > img {
-    width: 200px;
-    object-fit: contain;
-    margin: 2rem auto;
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #C30A34;
+    margin-bottom: 4rem;
   }
-`
 
-const SayWrap = styled.ul`
-  background-color: #fff;
-  box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
-  border-radius: 20px;
-  font-size: 1.1rem;
-  line-height: 25px;
-  padding: 3rem 0;
-`
+  section {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    .data-title {
+      display: inline-block;
+      width: fit-content;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 20px;
+      background-color: #006599;
+      padding: .5rem 1rem;
+      margin-bottom: 1rem;
+    }
 
-const DataTitle = styled.span`
-  font-weight: bold;
-  color: #fff;
-  border-radius: 20px;
-  background-color: #006599;
-  margin: 3rem 1rem;
-  padding: .5rem 1rem;
-`
+    dd { margin-bottom: 1rem; }
 
-const Describe = styled.p`
-  margin: 2rem;
+    img {
+      width: 200px;
+      object-fit: contain;
+      margin: 2rem auto;
+    }
+    .sayWrap {
+      background-color: #fff;
+      box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
+      border-radius: 20px;
+      font-size: 1.1rem;
+      line-height: 25px;
+      padding: 3rem;
+    }
+  }
+
+  .text-hide {
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+  }
 `
