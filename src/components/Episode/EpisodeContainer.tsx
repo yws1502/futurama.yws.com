@@ -19,6 +19,7 @@ export const EpisodeContainer = ({ name } : EpisodeContainerProps) => {
       {data.map((episode: Episodes) => {
         return (
           <EpisodeCard 
+            key={`Episode-${episode.id}`}
             episodeData={episode} />
         )
       })}
